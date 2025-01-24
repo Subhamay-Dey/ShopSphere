@@ -1,9 +1,10 @@
-import express from 'express';
+const express = require('express');
 import "dotenv/config";
-import cookieParser from 'cookie-parser';
-import path from 'path';
+const cookieParser = require('cookie-parser');
+const path = require('path');
 const ownersRouter = require('./routes/ownersRouter');
-import db from './config/mongooseConnection.js';
+const userRouter = require("./routes/userRouter.js")
+const db = require('./config/mongooseConnection.js');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
