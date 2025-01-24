@@ -2,6 +2,8 @@ import express from 'express';
 import "dotenv/config";
 import cookieParser from 'cookie-parser';
 import path from 'path';
+import ownerRouter from './routes/ownerRouter.js';
+import db from './config/mongooseConnection.js';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
