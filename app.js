@@ -16,4 +16,8 @@ app.get('/', (req, res) => {
     res.send('Express');
 })
 
+app.use("/owners", ownerRouter);
+app.use("/users", userRouter);
+app.use("/products", productRouter);
+
 app.listen(PORT, () => (`Server is running on port ${PORT}`))
