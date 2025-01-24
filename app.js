@@ -2,7 +2,7 @@ import express from 'express';
 import "dotenv/config";
 import cookieParser from 'cookie-parser';
 import path from 'path';
-import ownerRouter from './routes/ownerRouter.js';
+const ownersRouter = require('./routes/ownersRouter');
 import db from './config/mongooseConnection.js';
 
 const app = express();
@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
     res.send('Express');
 })
 
-app.use("/owners", ownerRouter);
+app.use("/owners", ownersRouter);
 app.use("/users", userRouter);
 app.use("/products", productRouter);
 
