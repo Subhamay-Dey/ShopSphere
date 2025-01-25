@@ -1,5 +1,4 @@
 const express = require('express');
-import "dotenv/config";
 const cookieParser = require('cookie-parser');
 const path = require('path');
 const ownersRouter = require('./routes/ownersRouter');
@@ -8,7 +7,6 @@ const productRouter = require("./routes/productRouter.js")
 const db = require('./config/mongooseConnection.js');
 
 const app = express();
-const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -24,4 +22,4 @@ app.use("/owners", ownersRouter);
 app.use("/users", userRouter);
 app.use("/products", productRouter);
 
-app.listen(PORT, () => (`Server is running on port ${PORT}`))
+app.listen(5000)
