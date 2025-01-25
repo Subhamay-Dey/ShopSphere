@@ -7,11 +7,9 @@ mongoose
   //   .connect(`${process.env.MONGODB_URI}/Shopsphere`)
   .connect(`${config.get("MONGODB_URI")}/Shopsphere`)
   .then(function () {
-    console.log("This is console response");
     dbgr("Connected to the database");
   })
   .catch(function (err) {
-    console.log(err);
     dbgr("Failed to connect to the database");
   });
 
