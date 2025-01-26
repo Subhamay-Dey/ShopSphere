@@ -2,7 +2,8 @@ const express = require('express');
 const usermodel = require('../models/usermodel');
 const bcrypt = require("bcrypt")
 const jwt = require('jsonwebtoken')
-require("dotenv").config()
+require("dotenv").config();
+const {generateToken} = require("../utils/generateToken")
 
 const router = express.Router();
 
@@ -24,7 +25,7 @@ router.post("/register", async function(req, res) {
                     email,
                     password: hash,
                 })
-                const token = 
+                const token = generateToken(createdUser)
                 res.cookie("token", token)
                 res.json({message: "User created successfully", user: createdUser})
                 }  
