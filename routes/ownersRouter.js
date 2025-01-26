@@ -3,7 +3,7 @@ const router = express.Router();
 const OwnerModel = require("../models/ownersmodel");
 
 router.get('/', function (req, res) {
-    res.send('Owners home page');
+    return res.send('Owners home page');
 });
 
 if(process.env.NODE_ENV === "development"){
@@ -20,7 +20,7 @@ if(process.env.NODE_ENV === "development"){
             email,
             password,
         })
-        res.send(createdOwner);
+        return res.send(createdOwner);
     })
 }
 
