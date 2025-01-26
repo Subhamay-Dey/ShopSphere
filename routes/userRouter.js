@@ -24,7 +24,7 @@ router.post("/register", async function(req, res) {
                     email,
                     password: hash,
                 })
-                const token = jwt.sign({email, id:user._id}, "P");
+                const token = 
                 res.cookie("token", token)
                 res.json({message: "User created successfully", user: createdUser})
                 }  
