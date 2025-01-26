@@ -36,3 +36,18 @@ async function registerUser (req, res){
 }
 
 module.exports.registerUser = registerUser
+
+async function loginUser (req, res) {
+    const {email, password} = req.body;
+    try {
+        const user = await usermodel.findOne({email:email, password:password})
+        if(!user) {
+            res.send({status: 501, message: "Invalid email or password"})
+        }
+        res.send(user)
+    } catch (error) {
+        res.send(err.message)
+    }
+}
+
+module.exports.loginUser = loginUser
