@@ -44,7 +44,6 @@ async function loginUser (req, res) {
         if(!user) {
             res.send({status: 501, message: "Invalid email or password"})
         }
-        res.send(user)
 
         bcrypt.compare(password, user.password, function(err, data){
             if(data) {
