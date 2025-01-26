@@ -45,6 +45,16 @@ async function loginUser (req, res) {
             res.send({status: 501, message: "Invalid email or password"})
         }
         res.send(user)
+
+        bcrypt.compare(password, user.password, function(err, data){
+            if(data) {
+                const token = generateToken(user);
+                res.cookie("token", token);
+                res.json({message: "User logged in successfully", user: user})
+            } else {
+                res.send({status: 501, message: "Invalid email or password"})
+            }
+        })
     } catch (error) {
         res.send(err.message)
     }
